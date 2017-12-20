@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Kakuro - Prolog</title>
+	<style>
+.infotable {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #FFFFFF;
+	height: 40px;
+	width: 40px;
+	border-style: none;
+	text-align: center;
+	border-color: grey;
+}
+
+.black {
+	height: 40px;
+	width: 40px;
+	background-color: black;
+	border-width: 1px;
+	border-style: solid;
+	border-color: grey;
+}
+
+.infocell {
+	height: 40px;
+	width: 40px;
+	margin: 0px;
+	padding: 0px;
+	background-color: #000000;
+	background-image: url(http://www.menneske.no/bilder/bcell.gif);
+	background-repeat: no-repeat;
+	border: 1px;
+	border-style: solid;
+	border-color: grey;
+}
+
+.firstColumn {
+	width: 52px;
+	background-color: black;
+}
+</style>
+</h:head>
+
+<h:body>
+
+	<h:form>
+		<h:panelGrid columns="5" cellpadding="0" cellspacing="0"
+			columnClasses="firstColumn,firstColumn,firstColumn,firstColumn,firstColumn "
+			style=" border: 2px solid grey;">
+			<h:panelGroup />
+			<h:panelGroup />
+			<h:outputText value="#{fields.getInfoField('','13')}" escape="false" />
+			<h:outputText value="#{fields.getInfoField('','26')}" escape="false" />
+			<h:panelGroup />
+
+			<h:panelGroup />
+			<h:outputText value="#{fields.getInfoField('12','11')}"
+				escape="false" />
+			<h:panelGroup>
+				<h:inputText binding="#{F0}" id="F0" maxlength="1" value="#{fields.solved[0]}"
+					 style="width: 52px; height:45px">
+					<f:validateLongRange minimum="1" maximum="9" />
+				</h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText binding="#{F1}" id="F1" maxlength="1" value="#{fields.solved[1]}"
+					 style="width: 52px; height:45px">
+					<f:validateLongRange minimum="1" maximum="9" />
+				</h:inputText>
+			</h:panelGroup>
+			<h:outputText value="#{fields.getInfoField('','13')}" escape="false" />
+
+			<h:outputText value="#{fields.getInfoField('11','')}" escape="false" />
+			<h:panelGroup>
+				<h:inputText binding="#{F2}" id="F2" maxlength="1" value="#{fields.solved[2]}"
+					 style="width: 52px; height:45px">
+					<f:validateLongRange minimum="1" maximum="9" />
+				</h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText binding="#{F3}" id="F3" maxlength="1" value="#{fields.solved[3]}"
+					 style="width: 52px; height:45px">
+					<f:validateLongRange minimum="1" maximum="9" />
+				</h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText binding="#{F4}" id="F4" maxlength="1" value="#{fields.solved[4]}"
+					 style="width: 52px; height:45px">
+					<f:validateLongRange minimum="1" maximum="9" />
+				</h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText binding="#{F5}" id="F5" maxlength="1" value="#{fields.solved[5]}"
+					 style="width: 52px; height:45px">
+					<f:validateLongRange minimum="1" maximum="9" />
+				</h:inputText>
+			</h:panelGroup>
+
+			<h:outputText value="#{fields.getInfoField('27','')}" escape="false" />
+			<h:panelGroup>
+				<h:inputText binding="#{F6}" id="F6" maxlength="1" value="#{fields.solved[6]}"
+					 style="width: 52px; height:45px">
+					<f:validateLongRange minimum="1" maximum="9" />
+				</h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText binding="#{F7}" id="F7" maxlength="1" value="#{fields.solved[7]}"
+					 style="width: 52px; height:45px">
+					<f:validateLongRange minimum="1" maximum="9" />
+				</h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText binding="#{F8}" id="F8" maxlength="1" value="#{fields.solved[8]}"
+					 style="width: 52px; height:45px">
+					<f:validateLongRange minimum="1" maximum="9" />
+				</h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText binding="#{F9}" id="F9" maxlength="1" value="#{fields.solved[9]}"
+					 style="width: 52px; height:45px">
+					<f:validateLongRange minimum="1" maximum="9" />
+				</h:inputText>
+			</h:panelGroup>
+
+
+			<h:panelGroup />
+			<h:outputText value="#{fields.getInfoField('13','')}" escape="false" />
+			<h:panelGroup>
+				<h:inputText binding="#{F10}" id="F10" maxlength="1" value="#{fields.solved[10]}"
+					 style="width: 52px; height:45px">
+					<f:validateLongRange minimum="1" maximum="9" />
+				</h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText binding="#{F11}" id="F11" maxlength="1" value="#{fields.solved[11]}"
+					 style="width: 52px; height:45px">
+					<f:validateLongRange minimum="1" maximum="9" />
+				</h:inputText>
+			</h:panelGroup>
+			<h:panelGroup />
+
+		</h:panelGrid>
+
+		<h:commandButton value="Check" actionListener="#{fields.checkData}">
+			<f:attribute name="A" value="#{F0.value}"></f:attribute>
+			<f:attribute name="B" value="#{F1.value}"></f:attribute>
+			<f:attribute name="C" value="#{F2.value}"></f:attribute>
+			<f:attribute name="D" value="#{F3.value}"></f:attribute>
+			<f:attribute name="E" value="#{F4.value}"></f:attribute>
+			<f:attribute name="F" value="#{F5.value}"></f:attribute>
+			<f:attribute name="G" value="#{F6.value}"></f:attribute>
+			<f:attribute name="H" value="#{F7.value}"></f:attribute>
+			<f:attribute name="I" value="#{F8.value}"></f:attribute>
+			<f:attribute name="J" value="#{F9.value}"></f:attribute>
+			<f:attribute name="K" value="#{F10.value}"></f:attribute>
+			<f:attribute name="L" value="#{F11.value}"></f:attribute>
+		</h:commandButton>
+		<h:commandButton value="Solve" action="#{fields.solvePuzzle}" />
+		<h:messages style = "color:red;margin:8px;" />
+		
+		 <h:outputLabel value = "Everything is correct!!!" rendered="#{fields.result ne null and fields.result}" /> 
+		  <h:outputLabel value = "There is a mistake..." rendered="#{fields.result ne null and not fields.result}"/> 
+	</h:form>
+
+</h:body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
